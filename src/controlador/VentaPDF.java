@@ -85,7 +85,7 @@ public class VentaPDF {
             PdfWriter.getInstance(doc, archivo);
             doc.open();
 
-            Image img = Image.getInstance("src/img/ventas.png");
+            Image img = Image.getInstance(getClass().getResource("/img/ventas.png"));
             Paragraph fecha = new Paragraph();
             Font negrita = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD, BaseColor.BLUE);
             fecha.add(Chunk.NEWLINE); //agregar nueva linea

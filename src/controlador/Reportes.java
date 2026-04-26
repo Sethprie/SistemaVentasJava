@@ -35,7 +35,7 @@ public class Reportes {
         try {
             String ruta = System.getProperty("user.home");
             PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Clientes.pdf"));
-            Image header = Image.getInstance("src/img/header1.jpg");
+            Image header = Image.getInstance(getClass().getResource("/img/header1.jpg"));
             header.scaleToFit(650, 1000);
             header.setAlignment(Chunk.ALIGN_CENTER);
             //formato al texto
@@ -97,7 +97,7 @@ public class Reportes {
         try {
             String ruta = System.getProperty("user.home");
             PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Productos.pdf"));
-            Image header = Image.getInstance("src/img/header1.jpg");
+            Image header = Image.getInstance(getClass().getResource("/img/header1.jpg"));
             header.scaleToFit(650, 1000);
             header.setAlignment(Chunk.ALIGN_CENTER);
             //formato al texto
@@ -168,7 +168,7 @@ public class Reportes {
         try {
             String ruta = System.getProperty("user.home");
             PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Categorias.pdf"));
-            Image header = Image.getInstance("src/img/header1.jpg");
+            Image header = Image.getInstance(getClass().getResource("/img/header1.jpg"));
             header.scaleToFit(650, 1000);
             header.setAlignment(Chunk.ALIGN_CENTER);
             //formato al texto
@@ -226,7 +226,7 @@ public class Reportes {
         try {
             String ruta = System.getProperty("user.home");
             PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Ventas.pdf"));
-            Image header = Image.getInstance("src/img/header1.jpg");
+            Image header = Image.getInstance(getClass().getResource("/img/header1.jpg"));
             header.scaleToFit(650, 1000);
             header.setAlignment(Chunk.ALIGN_CENTER);
             //formato al texto
