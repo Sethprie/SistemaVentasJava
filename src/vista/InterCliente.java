@@ -46,36 +46,30 @@ public class InterCliente extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nuevo Cliente");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 90, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Apellido:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 90, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Cédula:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 90, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Teléfono:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 90, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Dirección:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 90, -1));
@@ -92,7 +86,6 @@ public class InterCliente extends javax.swing.JInternalFrame {
         txt_telefono.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         getContentPane().add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 170, -1));
 
-        jButton_Guardar.setBackground(new java.awt.Color(0, 204, 204));
         jButton_Guardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton_Guardar.setText("Guardar");
         jButton_Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,30 +120,15 @@ public class InterCliente extends javax.swing.JInternalFrame {
 
                 if (controlCliente.guardar(cliente)) {
                     JOptionPane.showMessageDialog(null, "Registro Guardado");
-                    txt_nombre.setBackground(Color.green);
-                    txt_apellido.setBackground(Color.green);
-                    txt_cedula.setBackground(Color.green);
-                    txt_telefono.setBackground(Color.green);
-                    txt_direccion.setBackground(Color.green);
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al Guardar");
                 }
 
             } else {
                 JOptionPane.showMessageDialog(null, "El cliente ya esta registrado en la Base de Datos.");
-                txt_nombre.setBackground(Color.white);
-                txt_apellido.setBackground(Color.white);
-                txt_cedula.setBackground(Color.white);
-                txt_telefono.setBackground(Color.white);
-                txt_direccion.setBackground(Color.white);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Completa todos los campos");
-            txt_nombre.setBackground(Color.red);
-            txt_apellido.setBackground(Color.red);
-            txt_cedula.setBackground(Color.red);
-            txt_telefono.setBackground(Color.red);
-            txt_direccion.setBackground(Color.red);
         }
         //metodo limpiar
         this.Limpiar();

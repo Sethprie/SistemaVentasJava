@@ -62,7 +62,6 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(350, 500));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Sistema de Ventas");
 
@@ -115,9 +114,7 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
-        jButton_IniciarSesion.setBackground(new java.awt.Color(51, 153, 255));
         jButton_IniciarSesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton_IniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         jButton_IniciarSesion.setText("Iniciar Sesión");
         jButton_IniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

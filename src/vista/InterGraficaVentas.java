@@ -132,21 +132,21 @@ public class InterGraficaVentas extends javax.swing.JInternalFrame {
             largo_NuevoIngreso = listaCantidad.get(i) * 400 / mayorVenta;
 
             if (i == 0) {
-                g.setColor(new Color(140, 0, 75));//morado
+                g.setColor(new Color(156, 39, 176)); // Purple - good for both themes
             } else if (i == 1) {
-                g.setColor(new Color(255, 0, 0));//rojo
+                g.setColor(new Color(33, 150, 243)); // Blue - good for both themes
             } else if (i == 2) {
-                g.setColor(new Color(0, 0, 0));//negro
+                g.setColor(new Color(76, 175, 80)); // Green - good for both themes
             } else if (i == 3) {
-                g.setColor(new Color(255, 255, 255));//blanco
+                g.setColor(new Color(255, 152, 0)); // Orange - good for both themes
             } else if (i == 4) {
-                g.setColor(new Color(0, 85, 0));//verde
+                g.setColor(new Color(244, 67, 54)); // Red - good for both themes
             } else if (i == 5) {
-                g.setColor(new Color(0, 0, 255));//azul
+                g.setColor(new Color(0, 188, 212)); // Cyan - good for both themes
             } else if (i == 6) {
-                g.setColor(new Color(255, 127, 0));//naranja
+                g.setColor(new Color(255, 235, 59)); // Yellow - good for both themes
             } else {
-                g.setColor(new Color(17, 251, 216));//celeste
+                g.setColor(new Color(121, 85, 72)); // Brown - good for both themes
             }
             
             g.fillRect(100, parametro3, largo_NuevoIngreso, 40);

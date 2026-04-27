@@ -16,6 +16,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JPasswordField;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
 import modelo.Usuario;
@@ -68,7 +69,7 @@ public class InterGestionarUsuario extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txt_password = new javax.swing.JTextField();
+        txt_password = new javax.swing.JPasswordField();
         txt_apellido = new javax.swing.JTextField();
         txt_telefono = new javax.swing.JTextField();
         txt_usuario = new javax.swing.JTextField();
@@ -78,7 +79,6 @@ public class InterGestionarUsuario extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Administrar Usuarios");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
@@ -105,7 +105,6 @@ public class InterGestionarUsuario extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton_actualizar.setBackground(new java.awt.Color(51, 204, 0));
         jButton_actualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton_actualizar.setText("Actualizar");
         jButton_actualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +114,6 @@ public class InterGestionarUsuario extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jButton_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jButton_eliminar.setBackground(new java.awt.Color(255, 51, 51));
         jButton_eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton_eliminar.setText("Eliminar");
         jButton_eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -183,14 +181,14 @@ public class InterGestionarUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "¡Seleccione un Usuario!");
         } else {
             if (txt_nombre.getText().isEmpty() || txt_apellido.getText().isEmpty() || txt_usuario.getText().isEmpty()
-                    || txt_password.getText().isEmpty() || txt_telefono.getText().isEmpty()) {
+                    || txt_password.getPassword().length == 0 || txt_telefono.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "¡Completa todos los campos!");
 
             } else {
                 usuario.setNombre(txt_nombre.getText().trim());
                 usuario.setApellido(txt_apellido.getText().trim());
                 usuario.setUsuario(txt_usuario.getText().trim());
-                usuario.setPassword(txt_password.getText().trim());
+                usuario.setPassword(new String(txt_password.getPassword()).trim());
                 usuario.setTelefono(txt_telefono.getText().trim());
                 usuario.setEstado(1);
                 usuario.setRol(rolUsuarioSeleccionado);
@@ -243,7 +241,7 @@ public class InterGestionarUsuario extends javax.swing.JInternalFrame {
     public static javax.swing.JTable jTable_usuarios;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_nombre;
-    private javax.swing.JTextField txt_password;
+    private javax.swing.JPasswordField txt_password;
     private javax.swing.JTextField txt_telefono;
     private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
@@ -289,16 +287,28 @@ public class InterGestionarUsuario extends javax.swing.JInternalFrame {
             InterGestionarUsuario.jTable_usuarios = new JTable(model);
             InterGestionarUsuario.jScrollPane1.setViewportView(InterGestionarUsuario.jTable_usuarios);
 
+            // Agregar columnas pero omitir la columna de password
             for (int c = 1; c <= colCount; c++) {
-                model.addColumn(meta.getColumnLabel(c));
+                String columnName = meta.getColumnLabel(c);
+                if (!columnName.equalsIgnoreCase("password")) {
+                    model.addColumn(columnName);
+                }
             }
 
             while (rs.next()) {
                 Object[] fila = new Object[colCount];
+                int modelColIndex = 0;
                 for (int i = 0; i < colCount; i++) {
-                    fila[i] = rs.getObject(i + 1);
+                    String columnName = meta.getColumnLabel(i + 1);
+                    if (!columnName.equalsIgnoreCase("password")) {
+                        fila[modelColIndex] = rs.getObject(i + 1);
+                        modelColIndex++;
+                    }
                 }
-                model.addRow(fila);
+                // Ajustar el tamaño del array al número real de columnas que se agregarán
+                Object[] filaFinal = new Object[modelColIndex];
+                System.arraycopy(fila, 0, filaFinal, 0, modelColIndex);
+                model.addRow(filaFinal);
             }
             con.close();
         } catch (SQLException e) {

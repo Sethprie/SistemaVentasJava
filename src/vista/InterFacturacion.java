@@ -151,7 +151,6 @@ public class InterFacturacion extends javax.swing.JInternalFrame {
         jButton_RegistrarVenta = new javax.swing.JButton();
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Producto:");
 
@@ -160,18 +159,15 @@ public class InterFacturacion extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Facturación");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Cliente:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 80, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Cantidad:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 80, -1));
@@ -234,7 +230,6 @@ public class InterFacturacion extends javax.swing.JInternalFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 760, 210));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -321,11 +316,12 @@ public class InterFacturacion extends javax.swing.JInternalFrame {
 
             if (rs.next()) {
                 jComboBox_cliente.setSelectedItem(rs.getString("nombre") + " " + rs.getString("apellido"));
+                txt_cliente_buscar.setText("");
             } else {
                 jComboBox_cliente.setSelectedItem("Seleccione cliente:");
                 JOptionPane.showMessageDialog(null, "¡Cedula de cliente incorrecta o no encontrada!");
+                // No borramos el campo para que el usuario pueda corregirlo
             }
-            txt_cliente_buscar.setText("");
             cn.close();
         } catch (SQLException e) {
             System.out.println("¡Error al buscar cliente!, " + e);
