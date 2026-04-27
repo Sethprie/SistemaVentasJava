@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-04-2026 a las 22:36:00
+-- Tiempo de generación: 27-04-2026 a las 02:28:33
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -43,7 +43,8 @@ INSERT INTO `tb_cabecera_venta` (`idCabeceraVenta`, `idCliente`, `valorPagar`, `
 (1, 1, 820.80, '2026-04-05', 1),
 (2, 1, 820.80, '2026-04-05', 1),
 (3, 1, 1344.00, '2026-04-05', 1),
-(4, 1, 820.80, '2026-04-05', 1);
+(4, 1, 820.80, '2026-04-05', 1),
+(5, 1, 820.80, '2026-04-26', 1);
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,8 @@ INSERT INTO `tb_detalle_venta` (`idDetalleVenta`, `idCabeceraVenta`, `idProducto
 (1, 1, 1, 1, 720.00, 720.00, 0.00, 100.80, 820.80, 1),
 (2, 2, 1, 1, 720.00, 720.00, 0.00, 100.80, 820.80, 1),
 (3, 3, 2, 1, 1200.00, 1200.00, 0.00, 144.00, 1344.00, 1),
-(4, 4, 1, 1, 720.00, 720.00, 0.00, 100.80, 820.80, 1);
+(4, 4, 1, 1, 720.00, 720.00, 0.00, 100.80, 820.80, 1),
+(5, 5, 1, 1, 720.00, 720.00, 0.00, 100.80, 820.80, 1);
 
 -- --------------------------------------------------------
 
@@ -139,7 +141,7 @@ CREATE TABLE `tb_producto` (
 --
 
 INSERT INTO `tb_producto` (`idProducto`, `nombre`, `cantidad`, `precio`, `descripcion`, `porcentajeIva`, `idCategoria`, `estado`) VALUES
-(1, 'Audifonos', 367, 720.00, 'Audifonos Beat', 14, 1, 1),
+(1, 'Audifonos', 366, 720.00, 'Audifonos Beat', 14, 1, 1),
 (2, 'LG shdfjhsjd', 49, 1200.00, 'sdgsgsdfg', 12, 2, 1);
 
 -- --------------------------------------------------------
@@ -165,7 +167,7 @@ CREATE TABLE `tb_usuario` (
 
 INSERT INTO `tb_usuario` (`idUsuario`, `nombre`, `apellido`, `usuario`, `password`, `telefono`, `estado`, `rol`) VALUES
 (4, 'Admin', 'Sistema', 'admin', 'admin123', '0000000000', 1, 'administrador'),
-(6, 'Sergio', 'Prieto', 'seth', 'seth', '1234', 1, 'cajero');
+(6, 'Armando', 'Paredes', 'seth', 'seth', '1234', 1, 'cajero');
 
 --
 -- Índices para tablas volcadas
@@ -215,7 +217,7 @@ ALTER TABLE `tb_usuario`
 -- AUTO_INCREMENT de la tabla `tb_cabecera_venta`
 --
 ALTER TABLE `tb_cabecera_venta`
-  MODIFY `idCabeceraVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idCabeceraVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_categoria`
@@ -233,7 +235,7 @@ ALTER TABLE `tb_cliente`
 -- AUTO_INCREMENT de la tabla `tb_detalle_venta`
 --
 ALTER TABLE `tb_detalle_venta`
-  MODIFY `idDetalleVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idDetalleVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_producto`
